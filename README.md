@@ -74,6 +74,7 @@ exchangeList 礼物兑换的记录（没说就不做）
 礼物表：name, score, pic_url
 留言表: penid, name, content, time
 聊天表: openid, name, content, time
+兑换表: openid, name, time, giftid
 
 文件存储
 游戏动态资源图，礼物图

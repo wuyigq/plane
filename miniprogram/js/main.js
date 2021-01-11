@@ -226,6 +226,28 @@ export default class Main {
             }
         })
     }
+
+    // 排行榜
+    rankList() {
+        // 调用 rankList 云函数
+        wx.cloud.callFunction({
+            name: 'rankList',
+            data: {},
+            success: res => {
+                this.updateRankList(res.result.data)
+            },
+            fail: err => {
+                console.error('upload rankList failed', err)
+            }
+        })
+    }
+
+    //更新排行榜
+    updateRankList(data) {
+        console.log("---------updateRankList-------")
+        console.log(data)
+    }
+
     // 游戏结束后的触摸事件处理逻辑
     touchEventHandler(e) {
         e.preventDefault()
@@ -240,6 +262,7 @@ export default class Main {
             && y >= area.startY
             && y <= area.endY)
             this.restart()
+            this.rankList()
     }
 
     /**
